@@ -6,7 +6,7 @@ import android.widget.{Button, Toast, ListView, ArrayAdapter}
 import android.view.View
 import FindView._
 import org.json.{JSONObject, JSONArray}
-import scala.util.parsing.json.JSON.parseFull
+import scala.util.parsing.json._
 import scala.collection.immutable.Map
 import java.util.ArrayList
 
@@ -24,7 +24,7 @@ class MainActivity extends Activity with FindView {
   }
   
   def updateListView(data: String) {
-    val list = parseFull(data) match {
+    val list = JSON.parseFull(data) match {
       case Some(m: Map[String, Any]) => m.keys.map(_.toString).toArray
       case None => Array(R.string.no_item.toString)
     }
