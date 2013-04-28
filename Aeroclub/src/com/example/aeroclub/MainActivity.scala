@@ -36,6 +36,10 @@ class MainActivity extends Activity with FindView {
         findView[EditText](R.id.password).getText.toString
       )
     }
+    findView[Button](R.id.button_logout).onClick { view: View =>
+      settings.edit.remove("username").commit
+      loggedOutLayout
+    }
   }
   
   private def goToList(listType: String) = {
@@ -43,13 +47,24 @@ class MainActivity extends Activity with FindView {
     intent.putExtra("listType", listType)
     startActivity(intent)
   }
-  
-  def loggedInLayout() {
+
+  private def loggedOutLayout() {
+    findView[EditText](R.id.username).setVisibility(View.VISIBLE)
+    findView[EditText](R.id.password).setVisibility(View.VISIBLE)
+    findView[Button](R.id.sign_in).setVisibility(View.VISIBLE)
+    findView[Button](R.id.button_flights).setVisibility(View.INVISIBLE)
+    findView[Button](R.id.button_planes).setVisibility(View.INVISIBLE)
+    findView[Button](R.id.button_logout).setVisibility(View.INVISIBLE)
+    findView[TextView](R.id.title).setText(getString(R.string.sign_in))
+  }
+    
+  private def loggedInLayout() {
     findView[EditText](R.id.username).setVisibility(View.INVISIBLE)
     findView[EditText](R.id.password).setVisibility(View.INVISIBLE)
     findView[Button](R.id.sign_in).setVisibility(View.INVISIBLE)
     findView[Button](R.id.button_flights).setVisibility(View.VISIBLE)
     findView[Button](R.id.button_planes).setVisibility(View.VISIBLE)
+    findView[Button](R.id.button_logout).setVisibility(View.VISIBLE)
     findView[TextView](R.id.title).setText(getString(R.string.connected_as) + " " + settings.getString("username", ""))
   }
   
@@ -64,10 +79,9 @@ class MainActivity extends Activity with FindView {
     val result  = map("result") match {
       case "success" => {
         val editor = settings.edit
-        editor.putString("username", findView[EditText](R.id.username).getText.toString)
-        editor.commit
+        editor.putString("username", findView[EditText](R.id.username).getText.toString).commit
         loggedInLayout
-        title.append(s"\n $message")
+        title.append(s"\n$message")
       }
       case "error" => title.setText(message)
     }

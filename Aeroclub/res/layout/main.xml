@@ -67,4 +67,13 @@
         android:text="@string/sign_in"
         android:textAlignment="center" />
 
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sign_in"
+        android:layout_marginTop="29dp"
+        android:text="@string/logout"
+        android:visibility="gone" />
+
 </RelativeLayout>

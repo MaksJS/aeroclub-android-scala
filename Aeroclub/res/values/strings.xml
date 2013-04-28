@@ -14,5 +14,6 @@
 	<string name="sign_in">Connexion</string>
 	<string name="validate">Valider</string>
 	<string name="connected_as">Connecté en tant que</string>
+	<string name="logout">Déconnexion</string>
 	
 </resources>
