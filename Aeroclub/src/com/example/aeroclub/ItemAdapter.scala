@@ -36,7 +36,7 @@ class ItemAdapter(context: Context, list: List[Map[String, Any]], listType: Stri
     val informations = view.findViewById(R.id.informations).asInstanceOf[TextView]
     val map          = getItem(position)
     
-    title.setText(translatedKeys(listType) + " n°" + (position + 1) + "\n")
+    title.setText(translatedKeys(listType) + " n°" + map("id").asInstanceOf[Double].toInt + "\n")
     
     map.foreach { keyVal =>
       val key = translatedKeys get keyVal._1 match {
@@ -48,7 +48,8 @@ class ItemAdapter(context: Context, list: List[Map[String, Any]], listType: Stri
         case d: Double  => d.toString
         case s: String  => s
       }
-      informations.append(s"$key : $value\n")
+      if (key != "id")
+        informations.append(s"$key : $value\n")
     }
     view
   }

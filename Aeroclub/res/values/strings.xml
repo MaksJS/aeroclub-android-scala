@@ -11,4 +11,8 @@
 	<string name="back">Retour</string>
 	<string name="error">Erreur</string>
 	<string name="loaded">Chargé !</string>
+	<string name="sign_in">Connexion</string>
+	<string name="validate">Valider</string>
+	<string name="connected_as">Connecté en tant que</string>
+	
 </resources>

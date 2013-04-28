@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button_flights"
         android:layout_below="@+id/button_flights"
-        android:text="@string/plane_list" />
+        android:text="@string/plane_list" 
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/button_flights"
@@ -23,6 +24,47 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="17dp"
-        android:text="@string/flight_list" />
+        android:text="@string/flight_list"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_planes"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/username"
+        android:layout_below="@+id/username"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:text="@string/validate" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/username"
+        android:layout_alignRight="@+id/username"
+        android:layout_below="@+id/button_planes"
+        android:layout_marginTop="33dp"
+        android:text="@string/sign_in"
+        android:textAlignment="center" />
 
 </RelativeLayout>
