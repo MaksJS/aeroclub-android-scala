@@ -8,21 +8,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/button_planes"
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button_flights"
-        android:layout_below="@+id/button_flights"
-        android:text="@string/plane_list" />
+        android:layout_above="@+id/button1"
+        android:layout_centerHorizontal="true" >
+
+    </ListView>
 
     <Button
-        android:id="@+id/button_flights"
+        android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="17dp"
-        android:text="@string/flight_list" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/back" />
 
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.example.aeroclub
 import android.app.Activity
 import android.view.View
 
+// http://robots.thoughtbot.com/post/5836463058/scala-a-better-java-for-android
 trait FindView extends Activity {
   def findView [WidgetType] (id: Int): WidgetType = {
     findViewById(id).asInstanceOf[WidgetType]
